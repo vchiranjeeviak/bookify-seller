@@ -1,0 +1,39 @@
+@import '../breakpoints';
+
+h2 {
+    margin: 3rem auto;
+    text-align: center;
+    .link {
+        color: black;
+    }
+}
+.form {
+    .msg {
+        text-align: center;
+        color: red;
+    }
+    display: flex;
+        flex-direction: column;
+        margin: 3rem auto;
+       width: 250px;
+       @include md {
+           width: 500px;
+       }
+       input {
+        margin: 0.5rem;
+        height: 1.5rem;
+        border: 2px solid rgb(119, 155, 27);
+        border-radius: 5px;
+        padding: 0.2rem 0.2rem;
+    }
+    input[type="submit"] {
+        margin: 2rem 0.5rem;
+            background-color: rgb(190, 223, 107);
+            border: 1px solid rgb(190, 223, 107);
+            border-radius: 10px;
+            color: black;
+            font-size: 1rem;
+            font-weight: 600;
+            height: 40px;
+    }
+}

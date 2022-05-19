@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../backend";
+import "../styles/book.scss";
 
 const Book = ({ id, name, price, description, image, setData }) => {
   const navigate = useNavigate();
@@ -22,14 +23,22 @@ const Book = ({ id, name, price, description, image, setData }) => {
     }
   };
   return (
-    <div>
-      <p>{msg}</p>
-      <h3>{name}</h3>
-      <span>{price}</span>
-      <p>{description}</p>
-      <img src={image} alt="book" />
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="book">
+      <img className="image" src={image} alt="book" />
+      <p className="msg">{msg}</p>
+      <div className="nameAndPrice">
+        <h3 className="name">{name}</h3>
+        <span className="price">Rs.{price}</span>
+      </div>
+      <p className="description">{description}</p>
+      <div className="buttons">
+        <button className="edit" onClick={handleEdit}>
+          Edit
+        </button>
+        <button className="delete" onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

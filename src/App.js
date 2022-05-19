@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import AddBook from "./components/AddBook";
 import Deleted from "./components/Deleted";
 import EditBook from "./components/EditBook";

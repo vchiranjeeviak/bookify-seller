@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../backend";
+import "../styles/editBook.scss";
 
 const EditBook = () => {
   const { bookId } = useParams();
@@ -55,22 +56,31 @@ const EditBook = () => {
     }
   };
   return !isLoading ? (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <p>{msg}</p>
-        <label htmlFor="id">Book ID:</label>
-        <input name="id" value={data.id} readOnly />
-        <label htmlFor="name">Book Name:</label>
-        <input name="name" value={data.name} onChange={handleChange} />
-        <label htmlFor="price">Book Price:</label>
-        <input name="price" value={data.price} onChange={handleChange} />
-        <label htmlFor="description">Book Description:</label>
-        <input
-          name="description"
-          value={data.description}
-          onChange={handleChange}
-        />
-        <input type="submit" />
+    <div className="editBook">
+      <h2>Edit book here</h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <p className="msg">{msg}</p>
+        <div className="id">
+          <label htmlFor="id">Book ID:</label>
+          <input name="id" value={data.id} readOnly />
+        </div>
+        <div className="name">
+          <label htmlFor="name">Book Name:</label>
+          <input name="name" value={data.name} onChange={handleChange} />
+        </div>
+        <div className="price">
+          <label htmlFor="price">Book Price:</label>
+          <input name="price" value={data.price} onChange={handleChange} />
+        </div>
+        <div className="description">
+          <label htmlFor="description">Book Description:</label>
+          <textarea
+            name="description"
+            value={data.description}
+            onChange={handleChange}
+          />
+        </div>
+        <input type="submit" value="Update" />
       </form>
     </div>
   ) : (

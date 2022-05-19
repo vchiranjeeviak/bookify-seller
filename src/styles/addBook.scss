@@ -1,0 +1,55 @@
+@import '../breakpoints';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5rem;
+    .msg {
+        color: red;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        // padding: 0 auto;
+        margin: 0 auto;
+        .inputs {
+            width: 90%;
+            margin: 0.5rem;
+            height: 1.5rem;
+            border: 2px solid rgb(119, 155, 27);
+            border-radius: 5px;
+            padding: 0.2rem 0.2rem;
+        }
+        .inputs:nth-last-child(1){
+            height: 3rem;
+        }
+        label {
+            font-size: 1rem;
+        }
+        input[type="submit"]{
+            width: 90%;
+            margin: 3rem 0.5rem;
+            background-color: rgb(190, 223, 107);
+            border: 1px solid rgb(190, 223, 107);
+            border-radius: 10px;
+            color: black;
+            font-size: 1rem;
+            font-weight: 600;
+            height: 40px;
+        }
+        .image {
+            display: flex;
+            margin-top: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            label{
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.loading {
+    margin: 25% auto;
+}

@@ -1,0 +1,69 @@
+@import '../breakpoints';
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    .profileWelcome {
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    .profileForm {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 2rem;
+        .profileName {
+            label{
+                margin-right: 1rem;
+            }
+            input {
+                width: 200px;
+                height: 1.5rem;
+            border: 2px solid rgb(119, 155, 27);
+            border-radius: 5px;
+            padding: 0.2rem 0.2rem;
+            }
+        }
+        .profileEmail {
+            margin-top: 1rem;
+            label {
+                margin-right: 1rem;
+            }
+            input {
+                width: 200px;
+                height: 1.5rem;
+            border: 2px solid rgb(119, 155, 27);
+            border-radius: 5px;
+            padding: 0.2rem 0.2rem;
+            }
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        .edit {
+            margin-right: 0.5rem;
+            background-color: rgb(190, 223, 107);
+            border: 1px solid rgb(190, 223, 107);
+            border-radius: 10px;
+            height: 30px;
+            padding: 5px 5px;
+            cursor: pointer;
+        }
+        .delete {
+            margin-left: 0.5rem;
+            background-color: rgb(237, 109, 109);
+            border: 1px solid rgb(237, 109, 109);
+            padding: 5px 5px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+    .addedBooks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}

@@ -7,6 +7,8 @@ const Deleted = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+
   useEffect(() => {
     const deleteProfile = async () => {
       setIsLoading(true);
@@ -17,14 +19,18 @@ const Deleted = () => {
           },
         });
         setIsLoading(false);
+        setDeleted(true);
         navigate("/signup");
       } catch (error) {}
     };
     setTimeout(() => {
-      location.state.id ? navigate("/profile") : deleteProfile();
+      location.state?.id ? navigate("/profile") : deleteProfile();
     }, 5000);
   }, [navigate, location]);
 
+  useEffect(() => {
+    setTimeout(() => navigate("/profile"), 5000);
+  }, [deleted, navigate]);
   return isLoading ? (
     localStorage.getItem("id") ? (
       <div>
@@ -36,7 +42,7 @@ const Deleted = () => {
       </div>
     )
   ) : (
-    <h1>Loading....</h1>
+    <h1 className="loading">Loading....</h1>
   );
 };
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { api } from "../backend";
+import "../styles/editProfile.scss";
 
 const EditProfile = () => {
   const params = useParams();
@@ -45,17 +46,24 @@ const EditProfile = () => {
       ) : msg ? (
         <h1>{msg}</h1>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-          <label htmlFor="email">Email:</label>
-          <input type="email" value={location.state.email} readOnly></input>
-          <input type="submit" value="Update"></input>
-        </form>
+        <div>
+          <h2>Edit Profile:</h2>
+          <form className="editProfileForm" onSubmit={handleSubmit}>
+            <div className="editProfileName">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></input>
+            </div>
+            <div className="editProfileEmail">
+              <label htmlFor="email">Email:</label>
+              <input type="email" value={location.state.email} readOnly></input>
+            </div>
+            <input type="submit" value="Update"></input>
+          </form>
+        </div>
       )}
     </div>
   );

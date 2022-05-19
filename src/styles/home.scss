@@ -1,0 +1,33 @@
+@import '../breakpoints';
+
+.home {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @include md{
+        flex-direction: row;
+        flex-wrap:wrap;
+        flex-basis: content;
+        // height: 100vh;
+        justify-content:space-around;
+    }
+    overflow-y:visible;
+    .faq {
+        border: 2px solid rgb(119, 155, 27);
+        box-shadow: rgb(190, 223, 107) 4px 4px;
+        border-radius: 10px;
+        margin: 1.5rem 1rem;
+        padding: 1rem;
+        @include md{
+            width: 200px;
+            max-height: 180px;
+        }
+        @include lg {
+            width: 300px;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+    }
+}

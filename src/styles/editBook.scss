@@ -1,0 +1,23 @@
+@import '../breakpoints';
+
+.editBook {
+    margin-bottom: 200px;
+}
+.form {
+    margin-top: 1rem;
+}
+.id, .name, .price, .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    input {
+        width: 200px;
+    }
+    textarea {
+        width: 200px;
+        border: 2px solid rgb(119, 155, 27);
+            border-radius: 5px;
+    }
+}

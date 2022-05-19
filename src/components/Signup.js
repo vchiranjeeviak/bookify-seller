@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../backend";
+import "../styles/signup.scss";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -33,8 +34,15 @@ const Signup = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <p>{msg}</p>
+      <h2>
+        Signup here or{" "}
+        <Link className="link" to="/login">
+          Login
+        </Link>{" "}
+        if you are already a member
+      </h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <p className="msg">{msg}</p>
         <input
           type="text"
           name="name"
@@ -56,7 +64,7 @@ const Signup = () => {
           value={data.password}
           onChange={handleChange}
         />
-        <input type="submit" />
+        <input type="submit" value="Signup!" />
       </form>
     </div>
   );

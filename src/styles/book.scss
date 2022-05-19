@@ -1,0 +1,30 @@
+@import '../breakpoints';
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid rgb(119, 155, 27);
+    border-radius: 10px;
+    box-shadow: rgb(190, 223, 107) 4px 4px;
+
+    width: 250px;
+    height: 400px;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    .image {
+        height: 200px;
+        width: 200px;
+    }
+    .nameAndPrice {
+        display: flex;
+        justify-content: space-between;
+    }
+    .description {
+        text-align: left;
+    }
+    .buttons {
+        bottom: 0;
+    }
+}

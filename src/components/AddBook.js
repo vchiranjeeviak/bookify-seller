@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../backend";
+import "../styles/addBook.scss";
 
 const AddBook = () => {
   const [data, setData] = useState({});
@@ -22,6 +23,10 @@ const AddBook = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!data.name || !data.price || !data.image) {
+      setMsg("Enter all fields");
+      return;
+    }
     setIsLoading(true);
     try {
       const res = await axios.post(
@@ -56,37 +61,39 @@ const AddBook = () => {
       }, 5000);
     }
   };
-  return isLoading ? (
-    !msg ? (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Book name"
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="price"
-            placeholder="Book price"
-            onChange={handleChange}
-          />
-          <textarea
-            name="description"
-            placeholder="Description about book..."
-            onChange={handleChange}
-          />
-          <label htmlFor="image">Image of book</label>
+  return !isLoading ? (
+    <div className="main">
+      <p className="msg">{msg}</p>
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          className="inputs"
+          type="text"
+          name="name"
+          placeholder="Book name"
+          onChange={handleChange}
+        />
+        <input
+          className="inputs"
+          type="number"
+          name="price"
+          placeholder="Book price"
+          onChange={handleChange}
+        />
+        <textarea
+          className="inputs"
+          name="description"
+          placeholder="Description about book..."
+          onChange={handleChange}
+        />
+        <div className="image">
+          <label htmlFor="image">Image of book:</label>
           <input name="image" type="file" onChange={handleChange} />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    ) : (
-      <h1>{msg}</h1>
-    )
+        </div>
+        <input type="submit" value="submit"></input>
+      </form>
+    </div>
   ) : (
-    <h1>Loading....</h1>
+    <h1 className="loading">Loading....</h1>
   );
 };
 

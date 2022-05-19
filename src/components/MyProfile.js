@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Book from "./Book";
 import { api } from "../backend";
 import { useNavigate } from "react-router-dom";
+import "../styles/myProfile.scss";
 
 const MyProfile = () => {
   const [data, setData] = useState({
@@ -63,28 +64,44 @@ const MyProfile = () => {
   };
 
   return !msg ? (
-    <div>
-      <h1>Welcome {data.name}</h1>
-      <form>
-        <input value={data.name} readOnly />
-        <input value={data.email} readOnly />
+    <div className="profile">
+      <h1 className="profileWelcome">Welcome {data.name}</h1>
+      <form className="profileForm">
+        <div className="profileName">
+          <label htmlFor="name">Name:</label>
+          <input name="name" value={data.name} readOnly />
+        </div>
+        <div className="profileEmail">
+          <label htmlFor="email">E-mail:</label>
+          <input name="email" value={data.email} readOnly />
+        </div>
       </form>
-      <button onClick={handleEdit}>Edit Profile</button>
-      <button onClick={handleDelete}>Delete Profile</button>
-      {data.addedBooks &&
-        data.addedBooks.map((book) => {
-          return (
-            <Book
-              key={book.data._id}
-              id={book.data._id}
-              name={book.data.name}
-              price={book.data.price}
-              description={book.data.description}
-              image={book.data.image}
-              setData={setData}
-            ></Book>
-          );
-        })}
+      <div className="buttons">
+        <button className="edit" onClick={handleEdit}>
+          Edit Profile
+        </button>
+        <button className="delete" onClick={handleDelete}>
+          Delete Profile
+        </button>
+      </div>
+      <h2>Books added by you:</h2>
+
+      <div className="addedBooks">
+        {data.addedBooks &&
+          data.addedBooks.map((book) => {
+            return (
+              <Book
+                key={book.data._id}
+                id={book.data._id}
+                name={book.data.name}
+                price={book.data.price}
+                description={book.data.description}
+                image={book.data.image}
+                setData={setData}
+              ></Book>
+            );
+          })}
+      </div>
     </div>
   ) : (
     <h1>{msg}</h1>

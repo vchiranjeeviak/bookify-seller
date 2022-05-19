@@ -18,8 +18,15 @@
         width: 200px;
     }
     .nameAndPrice {
+        width: 100%;
         display: flex;
         justify-content: space-between;
+        .name{
+            text-align: left;
+        }
+        .price {
+            text-align: right;
+        }
     }
     .description {
         text-align: left;
